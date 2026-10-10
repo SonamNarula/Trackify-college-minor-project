@@ -1,128 +1,233 @@
-# Trackify — A Student Productivity & Placement Tracker
+<div align="center">
 
-**Built Different · No BS · Pure Grind Mode**
+<img src="docs/readme/banner.svg" alt="Trackify: student productivity and placement tracker" width="100%">
 
-[![Live Demo](https://img.shields.io/badge/🔥_LIVE_NOW-trackify.wasmer.app-6aa7ab?style=for-the-badge&logo=vercel&logoColor=white)](https://trackify.wasmer.app)
-[![Repo](https://img.shields.io/badge/GitHub-college__project-181717?style=for-the-badge&logo=github)](https://github.com/SonamNarula/college_project)
-[![License](https://img.shields.io/badge/License-MIT-10b981?style=for-the-badge)](LICENSE)
+<br>
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=cpp,js,ts,html,css,react,nodejs,express,mongodb,tailwind,redux,vite,git,github,postman,docker,firebase,figma,vercel,linux&perline=10" alt="Tech badge wall" />
-</p>
+<a href="https://trackify.wasmer.app"><img src="https://img.shields.io/badge/LIVE_DEMO-38bdf8?style=for-the-badge&logo=vercel&logoColor=06101d&labelColor=0a1b30" alt="Live demo"></a>
+![React](https://img.shields.io/badge/React_18-0a1b30?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-0a1b30?style=for-the-badge&logo=typescript&logoColor=3178C6)
+![Vite](https://img.shields.io/badge/Vite-0a1b30?style=for-the-badge&logo=vite&logoColor=FFD62E)
+![Chart.js](https://img.shields.io/badge/Chart.js-0a1b30?style=for-the-badge&logo=chartdotjs&logoColor=FF6384)
+![Firebase](https://img.shields.io/badge/Firebase_Auth-0a1b30?style=for-the-badge&logo=firebase&logoColor=FFCA28)
 
-> Premium, no-fluff dashboard that keeps students on track for placements with ruthless clarity, AI insights, and visual analytics — all offline-first.
+<br><br>
 
----
+**[Features](#-what-it-does) · [The coach](#-how-the-ai-coach-thinks) · [Run it](#-run-it-locally) · [Architecture](#-how-its-built) · [Limits](#-known-limits)**
 
-## What makes it premium
+<br>
 
-- **AI coach, no APIs:** Strict, rule-based insights that call out weak spots from tasks, study logs, and streaks — runs 100% in-browser.
-- **Placement radar:** Color-coded status board to scan applications in seconds.
-- **Study + DSA discipline:** Streak-aware logging with toast feedback and persistence.
-- **Truthful analytics:** Chart.js dashboards for hours, DSA solved, tasks, and placements.
-- **Instant UX:** Vite hot reloads, dark/light themes, fully responsive layouts.
-- **Zero backend:** Everything in `localStorage`; deploy anywhere static (Wasmer/Vercel/Netlify).
+<img src="docs/readme/stats.svg" alt="5 modules, 4 live charts, 0 AI API calls, about 2,000 lines of TypeScript" width="100%">
 
----
+</div>
 
-## Visual tour (every screen, with headings)
+<br>
 
-![Dashboard Dark](public/screenshots/ss1.jpeg)
+## 🎯 Why I built it
 
-![Dashboard Light](public/screenshots/ss4.jpeg)
+Placement prep has a lot of moving parts: DSA questions, study hours, a to-do list that never shrinks, and a growing pile of applications at different stages. Mine lived in four places and none of them told me the truth.
 
-![Task Manager All](public/screenshots/ss3.jpeg)
+Trackify puts all of it in one dashboard, and the dashboard doesn't flatter you. If you've studied two days this week, it says so.
 
-![Task Manager Progress](public/screenshots/ss5.jpeg)
+<div align="center">
 
-![Task Manager Views](public/screenshots/ss2.jpeg)
+<br>
 
-![Analytics Light](public/screenshots/ss6.jpeg)
+<img src="docs/readme/dashboard-light.jpg" alt="Trackify dashboard in light theme: stats, daily study goal, AI productivity coach and charts" width="49%">
+<img src="docs/readme/study-dark.jpg" alt="Trackify study tracker in dark theme with streaks and a focus timer" width="49%">
 
-![Study Tracker Light](public/screenshots/ss8.jpeg)
+<sub>Dashboard in the light theme, study tracker in the dark one.</sub>
 
-![Study Tracker Dark](public/screenshots/ss9.jpeg)
+</div>
 
-![Coach + Charts](public/screenshots/ss7.jpeg)
+<br>
 
----
+## ✨ What it does
 
-## Feature set
+<table>
+<tr>
+<td width="33%" valign="top">
 
-- **Dashboard:** Time-based greeting, stats, AI coach notes.
-- **Task Manager:** Priorities, filters, completion tracking, toast alerts.
-- **Study Tracker:** Hours + DSA questions with streak logic and reset rules.
-- **Placement Tracker:** Quick status updates, color-coded cards.
-- **Analytics:** Bar/Line/Doughnut charts via Chart.js (react-chartjs-2).
-- **Theming:** Dark/Light with CSS custom properties and localStorage persistence.
+### 📋 Task Manager
+Add tasks with a priority, filter by all, pending or completed, and tick them off. Toasts confirm adds and deletes.
 
----
+</td>
+<td width="33%" valign="top">
 
-## How the AI coach thinks
+### 📚 Study Tracker
+Log hours and DSA questions per day. A **streak** counts consecutive days and resets the moment you skip one.
 
-- Location: `src/utils/aiInsights.ts`
-- Rules check: pending load, completion %, study intensity, active days, streak length.
-- Output: short, pointed, slightly strict; zero external requests.
+</td>
+<td width="33%" valign="top">
 
----
+### 💼 Placement Tracker
+Every application as a colour-coded card: **applied → interview → selected / rejected**. Update a status in place as things move.
 
-## Quickstart
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+### 📊 Analytics
+Bar, line and doughnut charts for study hours, DSA solved, task priority split and placement outcomes.
+
+</td>
+<td valign="top">
+
+### 🧠 AI Productivity Coach
+Reads your tasks, study logs and streak, then tells you what's slipping. Strict on purpose.
+
+</td>
+<td valign="top">
+
+### 🌗 Light and dark
+Both themes run on CSS custom properties and remember your choice.
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+<br>
+
+<img src="docs/readme/tasks-dark.jpg" alt="Trackify task manager with priority tags and filters" width="70%">
+
+<br><sub>Task Manager: priority tags, filters, strike-through on done.</sub>
+
+</div>
+
+<br>
+
+## 🧠 How the AI coach thinks
+
+There is no model and no API key behind it. `src/utils/aiInsights.ts` is a pure function: you hand it your tasks, your study logs and your streak, and it returns three short, pointed observations. It runs in the browser, so it works offline and costs nothing.
+
+| It looks at | And reacts when | Tone |
+|---|---|---|
+| **Tasks** | more than 2 high-priority pending, more than 6 pending, completion under 40%, or over 85% | blunt, then grudging praise |
+| **Study** | 2 or fewer active days in the last 7, under 1.5 h/day on average, or under 5 DSA questions that week | placement-prep reality check |
+| **Streak** | 0, under 5, under 21, under 60, or 60+ days | from "start again, right now" to "audit what you're actually doing" |
+
+A real line from it:
+
+> *Discipline isn't motivation, it's a daily decision. Start again today. Not after lunch. Not tomorrow. Right now.*
+
+Rule-based was a deliberate choice. A strict, predictable coach is easier to trust than a chatty one, and every sentence it can say is a line I can read in one file.
+
+<br>
+
+## 🚀 Run it locally
+
+You need **Node 18+**.
 
 ```bash
-git clone https://github.com/SonamNarula/college_project.git
-cd college_project
+git clone https://github.com/SonamNarula/Trackify-college-minor-project.git
+cd Trackify-college-minor-project
 npm install
-npm run dev    # http://localhost:5173
+npm run dev        # http://localhost:5173
 ```
 
-### Production
+Production build:
 
 ```bash
-npm run build
+npm run build      # type-checks with tsc, then bundles with Vite
 npm run preview
 ```
 
-Node 18+ recommended.
+<details>
+<summary><b>Using your own Firebase project</b></summary>
 
----
+<br>
 
-## Project map
+Sign-in (email and password, or Google) runs on Firebase Authentication. The config in `src/firebase.ts` points at the project behind the live demo. To use your own, create a Firebase project, enable the Email/Password and Google providers, and replace the config object. Firebase web keys identify a project and aren't secrets, so the real protection is the **authorized domains** list in the Firebase console.
+
+</details>
+
+<br>
+
+## 🔬 How it's built
+
+```mermaid
+flowchart LR
+  subgraph Browser
+    A[App.tsx<br>state + handlers] --> P[Pages<br>Dashboard · Tasks · Study<br>Placement · Analytics]
+    A <--> LS[(localStorage<br>via useLocalStorage)]
+    A --> C[aiInsights.ts<br>pure function]
+    P --> CH[Chart.js]
+  end
+  AU[AuthContext + ProtectedRoute] --> A
+  AU <--> FB[Firebase Auth]
+```
+
+- **One source of truth.** `App.tsx` owns tasks, study logs, placements and the streak, and passes them down with handlers. Pages stay presentational.
+- **`useLocalStorage<T>`** is a small generic hook: read once on load, write on every change. Everything survives a refresh.
+- **Streak logic** only moves when you log *today*: if the last logged day was yesterday it increments, if it was longer ago it restarts at 1, and logging again the same day changes nothing.
+- **Auth gate.** `ProtectedRoute` renders the app only once Firebase confirms a user.
+
+<details>
+<summary><b>Data model</b></summary>
+
+<br>
+
+```ts
+Task          { id, title, priority: 'low' | 'medium' | 'high', completed, createdAt }
+StudyLog      { date: 'YYYY-MM-DD', hours, dsaQuestions }
+PlacementApp  { id, company, role, status: 'applied' | 'interview' | 'rejected' | 'selected', appliedDate, notes }
+```
+
+</details>
+
+<details>
+<summary><b>Project structure</b></summary>
+
+<br>
 
 ```
 src/
-  App.tsx             # Root layout and state
-  components/         # Sidebar, Header, StatCard, Toast, EmptyState, AI UI pieces
-  pages/              # Dashboard, TaskManager, StudyTracker, PlacementTracker, Analytics
-  utils/aiInsights.ts # Rule-based AI coach logic
-  styles/global.css   # Themes, layout, component styling
-  hooks/useLocalStorage.ts
+  App.tsx              root state and handlers
+  context/             AuthContext (Firebase)
+  components/          Sidebar, Header, StatCard, Toast, EmptyState, ProtectedRoute
+  pages/               Dashboard, TaskManager, StudyTracker, PlacementTracker, Analytics, Login
+  hooks/               useLocalStorage
+  utils/aiInsights.ts  rule-based coach
+  types/               shared types
+  styles/global.css    themes and layout
+docs/                  synopsis, full report, code walkthrough
 ```
 
+</details>
+
+<br>
+
+## 🚧 Known limits
+
+Being upfront about what this is, and isn't:
+
+- **Data lives in the browser.** It's `localStorage`, so it doesn't sync across devices, and it isn't separated per account: two logins on one browser share the same data.
+- **The coach is rules, not learning.** It's consistent and explainable, but it can't notice anything its thresholds don't cover.
+- **No automated tests yet.**
+- **One large JS bundle.** Code-splitting the Analytics page would trim the first load.
+
+## 🗺️ Next
+
+- [ ] Per-account data in Firestore, so progress follows you across devices
+- [ ] Tests for the streak logic and the coach rules
+- [ ] Deadline reminders
+- [ ] Code-split the charts
+
+## 📄 Docs
+
+This started as a college minor project, so it's documented like one: a synopsis, a full report (split into six parts) and a twelve-part code walkthrough, all in [`docs/`](docs).
+
+<br>
+
 ---
 
-## Deployment
+<div align="center">
 
-- Static build; host on Wasmer (live demo), Vercel, Netlify, or any static server.
-- Assets in `public/`; no server env vars needed.
+Built by **Sonam Narula** · [GitHub](https://github.com/SonamNarula) · [LinkedIn](https://linkedin.com/in/sonamnarula)
 
----
+<sub>Built different. No BS. Pure grind mode.</sub>
 
-## Docs (report + synopsis)
-
-- `docs/Trackify_Report.md` is the index for the full academic report (dated 2026-04-02) and points to Parts 1–6 for printing/merging.
-- Individual parts (`docs/Trackify_Report_Part1_...md` → `Part6`) are split for easier editing and PDF export; total length targets 50–70 pages with 12pt/1.5 spacing.
-- `docs/Trackify_Synopsis.md` contains the abstract, objectives, scope, and system overview for quick submissions.
-- Open any Markdown file in your editor/viewer and export to PDF when needed; no external assets or build steps are required.
-
----
-
-## Connect
-
-- [![Live Demo](https://img.shields.io/badge/Live_Demo-trackify.wasmer.app-2563EB?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1F2937)](https://trackify.wasmer.app)
-- [![Email](https://img.shields.io/badge/Email-sonamnarula2108%40gmail.com-E4572E?style=for-the-badge&logo=minutemailer&logoColor=white&labelColor=4B5563)](mailto:sonamnarula2108@gmail.com)
-- [![LinkedIn](https://img.shields.io/badge/LinkedIn-Sonam_Narula-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=4B5563)](https://www.linkedin.com/in/sonam-narula-402a60285/)
-- [![Instagram](https://img.shields.io/badge/Instagram-@sonamnarula-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=4B5563)](https://www.instagram.com/sonamnarula/)
-- [![Codolio](https://img.shields.io/badge/Codolio-Portfolio-5FB3B5?style=for-the-badge&logo=readthedocs&logoColor=white&labelColor=4B5563)](https://codolio.com/profile/0PG2lf5S)
-- [![GitHub](https://img.shields.io/badge/GitHub-@SonamNarula-111827?style=for-the-badge&logo=github&logoColor=white&labelColor=4B5563)](https://github.com/SonamNarula)
-
-If this helps your grind, drop a ⭐ on the repo.
+</div>
